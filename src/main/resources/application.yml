@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: f1-betting-service
+
+  r2dbc:
+    url: r2dbc:h2:mem:///f1betting;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    pool:
+      initial-size: 5
+      max-size: 10
+      max-idle-time: 30m
+
+  sql:
+    init:
+      mode: always
+server:
+  port: 8080
+
+logging:
+  level:
+    com.mateja.f1betting: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.netty.http.client: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+# OpenF1 API settings
+openf1:
+  api:
+    base-url: https://api.openf1.org/v1

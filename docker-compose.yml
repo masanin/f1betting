@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: f1-betting-app
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      JAVA_OPTS: "-Xmx512m -Xms256m"
+    ports:
+      - "8080:8080"
+      - "8082:8082"  # H2 console port (optional)
+    volumes:
+      - h2_data:/app/data  # Persist H2 data (optional)
+    restart: unless-stopped
+    networks:
+      - f1-network
+
+networks:
+  f1-network:
+    driver: bridge
+
+volumes:
+  h2_data:
+    driver: local

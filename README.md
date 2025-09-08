@@ -26,7 +26,7 @@ This backend service provides a REST API for Formula 1 betting operations includ
 
 ```bash
 git clone https://github.com/masanin/f1betting.git
-cd f1-betting-backend
+cd f1betting
 ```
 
 2. Build the project:
@@ -49,7 +49,7 @@ The application will start on `http://localhost:8080`
 
 ```bash
 git clone https://github.com/masanin/f1betting.git
-cd f1-betting-backend
+cd f1betting
 ```
 
 2. Build docker image:
@@ -67,6 +67,8 @@ make build
 The application will start on `http://localhost:8080`
 
 ## 📋 API Endpoints
+
+Swagger documentation can be found on `http://localhost:8080/swagger-ui.html`
 
 ### 1. List F1 Events
 
@@ -281,18 +283,6 @@ Run tests with:
 
 ```bash
 ./gradlew test
-```
-
-Run integration tests:
-
-```bash
-./gradlew integrationTest
-```
-
-Generate test coverage report:
-
-```bash
-./gradlew jacocoTestReport
 ```
 
 ## 📝 Business Rules
